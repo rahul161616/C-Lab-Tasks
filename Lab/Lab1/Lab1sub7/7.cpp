@@ -8,7 +8,7 @@ int main()
 
  cout<<"The area of the given circle is = "<<area(); //function calling directly at printing statement
 }
-float area(){
+float area(){   //the called function with require a returning statement (except void all requires return statement)
      float radius;
      cout<<"Enter the radius of the circle"<<endl;
      cin>>radius;
