@@ -7,8 +7,10 @@ class employee{
     int phone[2];
     int salary[2];
     int tax[2];
-    int calculate(int a){
-        int Net_salary = salary - tax;
+    int Net_salary;
+    int calculate(int a,int b){
+        
+        Net_salary = a - b;
         return Net_salary;
     };
     public:
@@ -31,10 +33,10 @@ class employee{
     for(int i=0;i<2;i++){
     cout<<"The name is = "<<name[i]<<endl;
     cout<<"\tThe adress is = "<<adress[i]<<endl;
-    cout<<"\tThe adress is = "<<phone[i]<<endl;
-    cout<<"\tThe adress is = "<<salary[i]<<endl;
-    cout<<"\tThe adress is = "<<tax[i]<<endl;
-    cout<<"\tThe net Salary of the employee is = "<<calculate(tax[i]);
+    cout<<"\tThe phone number is = "<<phone[i]<<endl;
+    cout<<"\tThe salary is = "<<salary[i]<<endl;
+    cout<<"\tThe tax amount paid  is = "<<tax[i]<<endl;
+    cout<<"\tThe net Salary of the employee is = "<<calculate(salary[i],tax[i]);
 
     cout<<endl;
     }
