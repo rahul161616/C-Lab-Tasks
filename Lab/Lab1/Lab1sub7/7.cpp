@@ -12,6 +12,6 @@ float area(){   //the called function with require a returning statement (except
      float radius;
      cout<<"Enter the radius of the circle"<<endl;
      cin>>radius;
-     return radius*radius*3.14;  //will return the area directly wchich will be caught at area();
+     return radius*radius*3.14;  //will return the area directly which will be caught at area();
 }
 
