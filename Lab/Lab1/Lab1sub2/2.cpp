@@ -9,7 +9,7 @@ int main()
     cin>>a>>b;
     if (a>b){
             cout <<a<<" is greater";
-    }
+    }                                           //if else block
     else{
             cout <<b<< " is greater";
     }

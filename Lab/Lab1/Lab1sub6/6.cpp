@@ -2,16 +2,15 @@
 
 using namespace std;
 
-int area(int,int);
+void getarea();  //function prototype
 int main()
 {
-    int a,b;
-   cout<<"The area is = "<<area(a,b);
+    getarea(); //calling function
+  
 }
-int area(int length,int breadth){
-    
-
+void getarea(){  
+    int length,breadth;
      cout<<"Enter the length and breadth"<<endl;
-     cin>>length>>breadth;
-     return length*breadth;
+     cin>>length>>breadth;                             //scanning length and breadth     
+      cout<<"The area is = "<<length*breadth;         //computing area
 }
