@@ -10,14 +10,15 @@ class circle{
        cin>>radius;
        return radius;
    }
-     float printarea(){
-          return (3.14*radius*radius);
+     void printarea(){
+          cout<<"The area of the circle is = "<<(3.14*radius*radius);;
+          
      }
 };
 int main()
 {
     circle c;
     c.getRadius();
-    cout<<"The area of the circle is = "<<c.printarea();
+    c.printarea();
     return 0;
 }
