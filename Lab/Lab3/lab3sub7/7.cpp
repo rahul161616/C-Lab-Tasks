@@ -21,5 +21,5 @@ int main(){
     fun f1;
     fun f2;
     fun f3;
-    f3.dataItemNumber(); 
+    f1.dataItemNumber(); 
 } 

@@ -11,8 +11,7 @@ class circle{
        return radius;
    }
      void printarea(){
-          cout<<"The area of the circle is = "<<(3.14*radius*radius);;
-          
+          cout<<"The area of the circle is = "<<(3.14*radius*radius);;     
      }
 };
 int main()
