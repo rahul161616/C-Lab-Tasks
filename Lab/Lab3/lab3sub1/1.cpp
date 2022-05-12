@@ -41,7 +41,7 @@ int main()
     cout<<"Enter the power:"<<endl;
     cin>>horsePower;
     //c.setModel(model);
-     cout<<"The name of the car is = "<<c.getName(name)<<endl;
+    cout<<"The name of the car is = "<<c.getName(name)<<endl;
     cout <<"The model of the car is = "<<c.getModel(model)<<endl;
     cout<<"The horse power of the car is = "<<c.getHorsePower(horsePower)<<endl;
 
