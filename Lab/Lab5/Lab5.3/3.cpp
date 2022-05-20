@@ -1,59 +1,63 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
 class Student
 {
-     int roll;
+    int roll;
 
-     public:
-     void setRoll(int a)
-     {
-         roll =a;
-     }
-     int ()
-     {
-         return roll;
-     }
+public:
+    void setRoll(int a)
+    {
+        roll = a;
+    }
+    int getRoll()
+    {
+        return roll;
+    }
 };
 
-class Test:public Student
+class Test : public Student
 {
- int sub1;
- int sub2;
-     public:
-     void setMark1(int a)
-     {
-         sub1 =a;
-     }
-     int getMark1()
-     {
-         return sub1;
-     }
+    int sub1;
+    int sub2;
 
-     void setMark2(int a)
-     {
-         sub2= a;
-     }
-     int getMark2()
-     {
-         return sub2;
-     }
+public:
+    void setMark1(int a)
+    {
+        sub1 = a;
+    }
+    int getMark1()
+    {
+        return sub1;
+    }
+
+    void setMark2(int a)
+    {
+        sub2 = a;
+    }
+    int getMark2()
+    {
+        return sub2;
+    }
 };
 
-class Result:public Student,public Test
+class Result : public Test
 {
-    public:
+public:
     void total()
     {
-      int  total = getMark1()+getMark2();
+        int total = getMark1() + getMark2();
+        cout<<"The total is = "<<total<<endl;
     }
 };
 int main()
 {
     Result R;
-    R.total();
+    R.setRoll(10);
     R.setMark1(20);
     R.setMark2(30);
-    
+    R.total();
+    cout<<"The roll is = "<<R.getRoll();
+    return 0;
 }
