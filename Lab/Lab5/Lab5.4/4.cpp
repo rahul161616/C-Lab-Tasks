@@ -2,7 +2,8 @@
 
 using namespace std;
 
-class Student{
+class Student
+{
        int roll_no;
 
        public:
@@ -10,11 +11,12 @@ class Student{
        {
            roll_no=a;
        }
-       int getRollno()
-       {
-           return roll_no;
-       }
+      void display()
+      {
+        cout<<"The roll number is = "<<roll_no<<endl;
+      }
 };
+
 class Test:public Student
 {
      int mark1;
@@ -22,29 +24,25 @@ class Test:public Student
 
      public:
 
-     void setMark1(int a)
+     void setMark(int a,int b)
      {
           mark1 = a;
+          mark2=b;
      }
-     int getMark1()
+     int getMark()
      {
-         return mark1;
-     }
-     void setMark2(int b)
-     {
-         mark2 = b;
-     }
-     int getMark2()
-     {
-         return mark2;
+        return mark1+mark2;
      }
      void display(){
-     cout<<"The mark in subject 1 is = :"<<getMark1()<<endl;
-    cout<<"The mark in Subject 2 is = :"<<getMark2()<<endl;
+       cout<<"The mark in subject 1 is = "<<mark1<<endl;
+       cout<<"The mark in Subject 2 is = "<<mark2<<endl;
      }
 };
-    class Sport{
+
+class Sport
+{
         int score;
+        public:
         void setScore(int a)
         {
             score=a;
@@ -53,18 +51,37 @@ class Test:public Student
         {
             return score;
         }
-    };
+     void display()
+     {
+        cout<<"The score in the sport is = "<<score<<endl;
+     }
+};
+
 class Result:public Test,public Sport{
     public:
     int total()
     {
-        int total = getMark1()+getMark2();
+       int total = getMark();
         return total;
+    }
+    void display()
+    {
+        cout<<"The total marks in two subjects is = "<<total()<<endl;
+        cout<<"The score in sports is= "<<getScore()<<endl;
     }
 };
 
-
 int main()
 {
+  Result R;
+  R.setMark(90,90);
+  R.setRollno(20);
+  R.setScore(5);
 
+  R.Student::display(); //selects specified display function
+  R.Test::display();
+  R.Sport::display();
+  R.display();
+ 
+  
 }
