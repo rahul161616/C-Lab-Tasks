@@ -2,28 +2,38 @@
 
 using namespace std;
 
-class sum
+class Time
 {
-   int add;
+    int hours;
+    int minutes;
+    int seconds;
 
 public:
-    sum(int b,int c)
+    Time() : hours(0), minutes(0), seconds(0) {}
+    Time(int h, int m, int s)
     {
-        add = b+c;
+        hours = h;
+        minutes = m;
+        seconds = s;
     }
-  sum()
-  {
-      add =0;
-  }
     void display()
     {
-        cout<<"The sum is = "<<add<<endl;
+        cout << hours << ":" << minutes << ":" << seconds << endl;
+    }
+    Time add(Time t)
+    {
+        Time temp;
+                temp.seconds = seconds+t.seconds;   //TEMP = A+B;
+                temp.minutes = minutes+t.minutes+(temp.seconds/60);
+                temp.hours = hours+t.hours+(temp.minutes/60);
+                temp.minutes = temp.minutes % 60;
+                temp.seconds = temp.seconds % 60;
+                return temp;
     }
 };
 int main()
 {
-    sum s(1,2),s1;
-    s.display();
-    s1.display();
-    return 0;
+    Time a(4,5,6),b(1,2,3),c;
+    c=a.add(b);
+    c.display();
 }

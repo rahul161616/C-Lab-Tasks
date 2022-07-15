@@ -2,53 +2,33 @@
 
 using namespace std;
 
-class student
+class copycons
 {
-
-    int roll_no;
-    string name;
+    int value;
 
 public:
-    student(int a)
+    copycons(int a)
     {
-        roll_no = a;
+        value = a;
     }
-    void setName(string nam)
+    copycons(copycons &obj)
     {
-        name = nam;
+        value = obj.value;
     }
-    string getName()
+    void display()
     {
-        return name;
-    }
-};
-
-class Derived_student : public student
-{
-public:
-    int x;
-    Derived_student(int a) : student(a)
-    {
-        x = a;
-    }
-    void disp()
-    {
-        cout << "The name is " << getName() << endl;
-        cout << "The roll is " << x << endl;
+        cout << "The value of c is " << value << endl;
     }
 };
 int main()
 {
-    int roll;
-    string name;
-
-    cout << "Enter roll :" << endl;
-    cin >> roll;
-
-    cout << "Enter name :" << endl;
-    cin >> name;
-
-    Derived_student Ds(roll);
-    Ds.setName(name);
-    Ds.disp();
+    copycons c(10);
+    copycons c1(c);
+    c1.display();
+    return 0;
 }
+/*If we comment out the (copycons &obj){
+    value = obj.value;
+}
+Then also the porgram will run that is because the compiler supplies the copy constructor
+ by itself it it doesnot find one in the porgram*/

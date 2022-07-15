@@ -2,39 +2,46 @@
 
 using namespace std;
 
-class Time
+class complex
 {
-    int hours;
-    int minutes;
-    int seconds;
+
+    int real;
+    int imag;
 
 public:
-    Time() : hours(0), minutes(0), seconds(0) {}
-    Time(int h, int m, int s)
+    complex()
     {
-        hours = h;
-        minutes = m;
-        seconds = s;
+        real = 0;
+        imag = 0;
+    }
+    complex(int real, int imag)  //-> is used to remove the confusion from private real img and passed real imag
+    {
+        this ->real=real;   //this ->separates private real from passed int real in (int real,int imag)
+        this ->imag=imag;   //this ->separates private imag from passed int imag in (int real,int imag)
+    }
+
+    complex add(complex a, complex b)   
+    {
+        complex temp;
+        temp.imag = a.imag + b.imag;   //this is like c= a+b from main
+        temp.real = a.real + b.real;   //this is like c=a+b from main
+        return temp;
     }
     void display()
     {
-        cout << hours << ":" << minutes << ":" << seconds << endl;
-    }
-    Time add(Time t)
-    {
-        Time temp;
-                temp.seconds = seconds+t.seconds;
-                temp.minutes = minutes+t.minutes+(temp.seconds/60);
-                temp.hours = hours+t.hours+(temp.minutes/60);
-                temp.minutes = temp.minutes % 60;
-                temp.seconds = temp.seconds % 60;
-                return temp;
+        cout << real << "+ i" << imag << endl;
     }
 };
 int main()
 {
-    Time a,b(1,2,3),c;
-    a.display();
-    b.display();
-    c=a.add(b);
+    int p, q, r, s;
+
+    cout << "Enter the values:" << endl;
+    cin >> p >> q >> r >> s;
+    complex a(p, q);
+    complex b(r, s);
+    complex c;
+    c = c.add(a, b);  // object c calls add passing object a and b as arguement
+    c.display();
+    return 0;
 }

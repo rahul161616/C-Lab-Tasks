@@ -52,8 +52,16 @@ public:
 int main()
 {
     class3 C3;
-    C3.setX(1);
-    C3.setY(3);
+
+    int x,y;
+
+    cout<<"Enter the 1st number:";
+    cin>>x;
+    cout<<"Enter the 2nd number";
+    cin>>y;
+
+    C3.setX(x);
+    C3.setY(y);
     cout<<"The sum is = "<<C3.add();
     return 0;
 }

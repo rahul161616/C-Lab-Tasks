@@ -1,0 +1,64 @@
+#include<iostream>
+#include<string.h>
+
+using namespace std;
+
+class Mountain{   
+     int height;
+     string name;
+     string location;
+  public:
+  Mountain() : name(""),height(0),location("") {}
+  Mountain(int hei,string nameOfTheMountain,string loc)
+  {
+       height =hei;
+       name=nameOfTheMountain;
+       location=loc;
+  }
+   Mountain CmpHeight(Mountain m2)
+  {  
+      if (height>m2.height)
+      {
+          Mountain m;
+          m.name = name;
+          m.location = location;
+          m.height = height;
+          return m;
+      }
+  }
+  void displayInfo(){
+    cout<<name<<endl;
+    cout<<height<<endl;
+    cout<<location<<endl;
+  }
+
+};
+int main()
+{
+    int height,test=5;
+    string name;
+    string location;
+    while (test!=0){
+     cout<<"Enter the name of the mountain:";
+     cin>>name;
+     cout<<"Enter the height of the mountain:";
+     cin>>height;
+     cout<<"Enter the location where the name is located:";
+     cin>>location;
+    cout<<"\n*************************************************"<<endl;
+    int height2;
+    string name2;
+    string location2;
+    cout << "Enter the name of the mountain:";
+    cin >> name2;
+    cout <<"Enter the height of the mountain:";
+    cin >> height2;
+    cout << "Enter the location where the name is located:";
+    cin >> location2;
+    Mountain mtn1(height, name, location), mtn2(height, name, location),m;
+   // mtn1.displayInfo();m
+   m = mtn1.CmpHeight(mtn2);
+   m.displayInfo();
+   test--;
+    }
+}

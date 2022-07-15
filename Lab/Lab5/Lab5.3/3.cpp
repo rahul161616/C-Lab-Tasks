@@ -45,19 +45,34 @@ public:
 class Result : public Test
 {
 public:
-    void total()
+    int total()
     {
         int total = getMark1() + getMark2();
-        cout<<"The total is = "<<total<<endl;
+        return total;
+    }
+    void display()
+    {
+        cout<<"The roll number is = :"<<getRoll()<<endl;
+        cout<<"The mark in subject 1 is = :"<<getMark1()<<endl;
+        cout<<"The mark in Subject 2 is = :"<<getMark2()<<endl;
+        cout<<"The total mark is = :"<<total();
     }
 };
 int main()
 {
     Result R;
-    R.setRoll(10);
-    R.setMark1(20);
-    R.setMark2(30);
-    R.total();
-    cout<<"The roll is = "<<R.getRoll();
+
+    int mark1,mark2,roll_number;
+    cout<<"Enter the roll number:";
+    cin>>roll_number;
+    cout<<"Enter the marks in subject 1:";
+    cin>>mark1;
+    cout<<"Enter the mark in subject 2:";
+    cin>>mark2;
+
+    R.setRoll(roll_number);
+    R.setMark1(mark1);
+    R.setMark2(mark2);
+    R.display();
     return 0;
 }

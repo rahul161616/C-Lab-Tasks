@@ -1,47 +1,48 @@
-#include <iostream>
+#include<iostream>
+#include<string.h>
 
 using namespace std;
 
-class complex
-{
+class Mountain{   
+     int height;
+     string name;
+     string location;
+  public:
+  Mountain() : name(""),height(0),location("") {}
+  Mountain(int hei,string nameOfTheMountain,string loc)
+  {
+       height =hei;
+       name=nameOfTheMountain;
+       location=loc;
+  }
+   Mountain CmpHeight(Mountain m1,Mountain m2)
+  {  
+              Mountain m;
+      if (m1.height>m2.height)
+      {
+          m.name = m1.name;
+          m.location = m1.location;
+          m.height = m1.height;
+      }
+      else{
+          m.name = m2.name;
+          m.location = m2.location;
+          m.height = m2.height;
+      }
+                return m;
+  }
+  void displayInfo(){
+    cout<<name<<endl;
+    cout<<height<<endl;
+    cout<<location<<endl;
+  }
 
-    int real;
-    int imag;
-
-public:
-    complex()
-    {
-        real = 0;
-        imag = 0;
-    }
-    complex(int real, int imag)  //-> is used to remove the confusion from private real img and passed real imag
-    {
-        this ->real=real;   //this ->separates private real from passed int real in (int real,int imag)
-        this ->imag=imag;   //this ->separates private imag from passed int imag in (int real,int imag)
-    }
-
-    complex add(complex a, complex b)   
-    {
-        complex temp;
-        temp.imag = a.imag + b.imag;   //this is like c= a+b from main
-        temp.real = a.real + b.real;   //this is like c=a+b from main
-        return temp;
-    }
-    void display()
-    {
-        cout << real << "+ i" << imag << endl;
-    }
 };
 int main()
 {
-    int p, q, r, s;
+   
 
-    cout << "Enter the values:" << endl;
-    cin >> p >> q >> r >> s;
-    complex a(p, q);
-    complex b(r, s);
-    complex c;
-    c = c.add(a, b);  // object c calls add passing object a and b as arguement
-    c.display();
-    return 0;
+    Mountain mtn1(10, "Saagarmatha", "solukhumbu"), mtn2(1, "Annapurna", "Pokhara"),m;
+   m = m.CmpHeight(mtn1,mtn2);
+   m.displayInfo();
 }

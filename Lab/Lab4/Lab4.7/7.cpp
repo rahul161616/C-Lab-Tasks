@@ -2,33 +2,28 @@
 
 using namespace std;
 
-class copycons
+class sum
 {
-    int value;
+   int add;
 
 public:
-    copycons(int a)
+    sum(int b,int c)
     {
-        value = a;
+        add = b+c;
     }
-    copycons(copycons &obj)
-    {
-        value = obj.value;
-    }
+  sum()
+  {
+      add =0;
+  }
     void display()
     {
-        cout << "The value of c is " << value << endl;
+        cout<<"The sum is = "<<add<<endl;
     }
 };
 int main()
 {
-    copycons c(10);
-    copycons c1(c);
-    c1.display();
+    sum s(1,2),s1;
+    s.display();
+    s1.display();
     return 0;
 }
-/*If we comment out the (copycons &obj){
-    value = obj.value;
-}
-Then also the porgram will run that is because the compiler supplies the copy constructor
- by itself it it doesnot find one in the porgram*/
