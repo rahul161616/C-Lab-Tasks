@@ -15,6 +15,10 @@ public:
     {
         name = nameOfStaff;
     }
+    string getNameS()
+    {
+        return name;
+    }
     string getAdress()
     {
         return adress;
@@ -35,17 +39,16 @@ public:
 
 class NonTeaching : virtual public Staff
 {
-    string name;
-    string adress;
+        string adress;
     string post;
 
 public:
-  NonTeaching ():name(""),adress(""),post(""){}
-    NonTeaching(string nameOfNonTeaching)
-    {
-        name = nameOfNonTeaching;
+  NonTeaching ():adress(""),post(""){}
+  NonTeaching(string name) :Staff(name)
+  {
+      name = name;
     }
-    string getNameOfNonTeaching()
+    string getNameN()
     {
         return name;
     }
@@ -68,15 +71,13 @@ public:
 };
 class Teaching : virtual public Staff
 {
-    string name;
     string adress;
     string department;
-
 public:
-    Teaching() : name(""), adress(""), department("") {}
-    Teaching(string nameOfNonTeaching)
+    Teaching() :  adress(""), department("") {}
+    Teaching(string name) :Staff(name)
     {
-        name = nameOfNonTeaching;
+        this->name = name;
     }
     string getNameT()
     {
@@ -101,18 +102,17 @@ public:
 };
 class Admin : public NonTeaching, public Teaching
 {
-    string nameOfStaffX;
     int workingHours;
 
 public:
 
-   Admin (string nameOfStaff):Staff(nameOfStaff)
+   Admin (string name):Staff(name)
    {
-      nameOfStaffX=nameOfStaff;
+      this->name=name;
    }
    string getStaffname()
    {
-    return nameOfStaffX;
+    return name;
    }
 
     void setWorkingHoursStaff(int ws)
@@ -142,7 +142,10 @@ public:
 };
 int main()
 {
-    Admin a();
+    Admin a("Rocky");
+    Teaching t("Robert");
+    NonTeaching n("Roman");
+    Staff s("Broman");
 
     a.setAdress("GCES");
     a.setAdressN("Lamachaur");
@@ -153,22 +156,21 @@ int main()
     a.setWorkingHoursOfNonTeachingStaff(20);
     a.setWorkingHoursOfTeachingStaff(30);
 
-    a.setNameOfNonTeachingStaff("ALbatross");
     a.setPost("Mechanical Adjustsments");
     a.setPostN("Administration");
     a.setDepartmentT("Programming");
 
-    cout << "\nName Of The Staff:" << a.getName() << endl;
+    cout << "\nName Of The Staff:" << a.getNameS()<< endl;
     cout << "Adress Of The staff:" << a.getAdress() << endl;
     cout << "Post Of The Staff:" << a.getPost() << endl;
     cout << "Working Hours Of The Staff:" << a.getWorkingHoursStaff() << endl;
     cout << endl;
-    cout << "\nName Of The Non Teaching Staff:" << a.getNameN() << endl;
+    cout << "\nName Of The Non Teaching Staff:" << n.getNameN() << endl;
     cout << "Adress Of The Non Teaching Staff:" << a.getAdressN() << endl;
     cout << "Post Of The Non Teaching Staff:" << a.getPostN() << endl;
     cout << "Working Hours Of The Non Teaching Staff:" << a.getWorkingHoursOfNonTeachingStaff() << endl;
     cout << endl;
-    cout << "\nName Of The Teaching Staff:" << a.getNameT() << endl;
+    cout << "\nName Of The Teaching Staff:" << t.getNameT() << endl;
     cout << "Adress Of The Teaching Staff:" << a.getAdressT() << endl;
     cout << "Department Of The Teaching Staff:" << a.getDepartmentT() << endl;
     cout << "Working Hours Of The Teaching Staff:" << a.getWorkingHoursStaff() << endl;
